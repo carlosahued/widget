@@ -1,7 +1,7 @@
 // public/widget.js
 (function () {
   const script = document.createElement("script");
-  script.src = "https://your-nextjs-site.com/_next/static/chunks/main.js"; // Reemplaza esta URL con la URL correcta del archivo JavaScript compilado
+  script.src = "https://widget-seven-lac.vercel.app/_next/static/chunks/main.js"; // Reemplaza esta URL con la URL correcta del archivo JavaScript compilado
   script.async = true;
   script.onload = function () {
     const widgetContainer = document.createElement("div");
