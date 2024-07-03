@@ -37,7 +37,7 @@ const ChatWidget = () => {
     "https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 
   return (
-    <div style={{ width: "435px" }}>
+    <div>
       <button onClick={() => setOpen(!open)}>{open ? "CLOSE" : "OPEN"}</button>
       {/* MODAL */}
       <AnimatePresence>
@@ -48,6 +48,7 @@ const ChatWidget = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ ease: "linear" }}
           >
             {/* HEADER */}
             <div className={styles.w}>
