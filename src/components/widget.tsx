@@ -3,8 +3,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { App, Tv, VideoFill } from "../../public/symbols";
+import { AppDashed, App, Tv, VideoFill } from "../../public/symbols";
 import styles from "./styles.module.scss";
+import Pictures from "./pictures";
 
 const ChatWidget = () => {
   const [id, setId] = useState("");
@@ -12,6 +13,8 @@ const ChatWidget = () => {
   const [start, setStart] = useState(false);
   const audioRef: any = useRef(null);
   const audioRefe: any = useRef(null);
+  // TESR
+  const [pictures, setPictures] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -34,13 +37,14 @@ const ChatWidget = () => {
     "https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 
   return (
-    <div style={{ width: "435px", height: "400px", background: "red" }}>
+    <div style={{ width: "435px" }}>
       <button onClick={() => setOpen(!open)}>{open ? "CLOSE" : "OPEN"}</button>
       {/* MODAL */}
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {open && (
           <motion.div
             className={styles.q}
+            style={{ height: pictures ? 400 : 161 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -72,8 +76,8 @@ const ChatWidget = () => {
               </button>
               {start ? (
                 Array.from({ length: 3 }).map((_, i) => (
-                  <button key={i}>
-                    <Tv height="19" />
+                  <button key={i} onClick={() => setPictures(!pictures)}>
+                    <AppDashed height="19" />
                     <span className={styles.tool}>Screen</span>
                   </button>
                 ))
@@ -87,6 +91,10 @@ const ChatWidget = () => {
                 </button>
               )}
             </div>
+            {/* DYNAMIC-UI */}
+            <AnimatePresence>
+              {pictures && <div>{pictures && <Pictures />}</div>}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
