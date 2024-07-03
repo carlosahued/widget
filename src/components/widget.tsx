@@ -1,10 +1,19 @@
 // src/components/widget.tsx
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [id, setId] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    if (id) {
+      setId(id);
+    }
+  }, []);
 
   return (
     <div style={{ width: "435px", height: "400px", background: "red" }}>
@@ -17,7 +26,7 @@ const ChatWidget = () => {
             backgroundColor: "blue",
           }}
         >
-          Hola Mundo
+          Hola Mundo ID: {id}
         </div>
       )}
     </div>
