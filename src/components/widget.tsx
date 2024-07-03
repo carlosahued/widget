@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,17 +19,22 @@ const ChatWidget = () => {
   return (
     <div style={{ width: "435px", height: "400px", background: "red" }}>
       <button onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? "Cerrar" : "Abrir"} Chat
+        {isOpen ? "Cerrar" : "Abrir"} Modal
       </button>
-      {isOpen && (
-        <div
-          style={{
-            backgroundColor: "blue",
-          }}
-        >
-          Hola Mundo ID: {id}
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              backgroundColor: "blue",
+            }}
+          >
+            Hola Mundo ID: {id}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
