@@ -7,9 +7,7 @@ const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
-      style={{ position: "fixed", bottom: 20, right: 20, background: "red" }}
-    >
+    <div style={{ background: "red" }}>
       <button onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? "Cerrar" : "Abrir"} Chat
       </button>
@@ -18,7 +16,7 @@ const ChatWidget = () => {
           style={{
             width: 435,
             height: 400,
-            backgroundColor: "white",
+            backgroundColor: "blue",
             border: "1px solid black",
             padding: 10,
           }}
