@@ -37,7 +37,7 @@ const ChatWidget = () => {
     "https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <button onClick={() => setOpen(!open)}>{open ? "CLOSE" : "OPEN"}</button>
       {/* MODAL */}
       <AnimatePresence>
