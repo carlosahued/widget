@@ -1,63 +1,31 @@
 "use client";
-// components/Widget.tsx
+
+// components/ChatWidget.js
 import React, { useState } from "react";
 
-const widgetButtonStyle: React.CSSProperties = {
-  position: "fixed",
-  bottom: "20px",
-  right: "20px",
-  backgroundColor: "#007bff",
-  color: "white",
-  border: "none",
-  borderRadius: "50%",
-  width: "60px",
-  height: "60px",
-  fontSize: "24px",
-  cursor: "pointer",
-  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-};
-
-const chatContainerStyle: React.CSSProperties = {
-  position: "fixed",
-  bottom: "90px",
-  right: "20px",
-  width: "300px",
-  height: "400px",
-  backgroundColor: "white",
-  border: "1px solid #ddd",
-  borderRadius: "8px",
-  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-  display: "none",
-};
-
-const chatContainerVisibleStyle: React.CSSProperties = {
-  ...chatContainerStyle,
-  display: "block",
-};
-
-const Widget: React.FC = () => {
+const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <>
-      <button style={widgetButtonStyle} onClick={toggleChat}>
-        💬
+    <div style={{ position: "fixed", bottom: 20, right: 20 }}>
+      <button onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? "Cerrar" : "Abrir"} Chat
       </button>
-      <div style={isOpen ? chatContainerVisibleStyle : chatContainerStyle}>
-        <iframe
-          src="/hello"
-          width="100%"
-          height="100%"
-          style={{ border: "1px solid red" }}
-          title="Chat"
-        ></iframe>
-      </div>
-    </>
+      {isOpen && (
+        <div
+          style={{
+            width: 300,
+            height: 400,
+            backgroundColor: "white",
+            border: "1px solid black",
+            padding: 10,
+          }}
+        >
+          Hola Mundo
+        </div>
+      )}
+    </div>
   );
 };
 
-export default Widget;
+export default ChatWidget;
