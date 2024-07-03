@@ -1,6 +1,6 @@
+// src/components/widget.tsx
 "use client";
 
-// components/ChatWidget.js
 import React, { useState } from "react";
 
 const ChatWidget = () => {
