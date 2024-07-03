@@ -9,7 +9,7 @@ import Pictures from "./pictures";
 
 const ChatWidget = () => {
   const [id, setId] = useState("");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [start, setStart] = useState(false);
   const audioRef: any = useRef(null);
   const audioRefe: any = useRef(null);
