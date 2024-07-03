@@ -14,7 +14,7 @@ const ChatWidget = () => {
       {isOpen && (
         <div
           style={{
-            width: 300,
+            width: 435,
             height: 400,
             backgroundColor: "white",
             border: "1px solid black",
